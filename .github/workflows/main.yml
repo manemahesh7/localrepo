@@ -1,4 +1,4 @@
-name: Workflow01 from localrepo
+name: Workflow01 from localrepo to trigger workflow 2
 on:
   push:
     branches:
