@@ -1,20 +1,29 @@
 name: Workflow01 from localrepo to trigger workflow 2
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 600
 
     steps:
-       - name: Checkout to repository
-       - uses: actions/checkout@v3
+      - name: Checkout to repository
+        uses: actions/checkout@v3
+
+      - name: Print a message before starting build
+        run: echo "Starting the build process..."
 
       # Your existing workflow steps
-      #  At the end of your all steps add the below step
-          
+      # ...
+
+      # At the end of your all steps add the below step
+      - name: Print a message after completing build
+        run: echo "Build completed successfully!"
+
   trigger-workflow02:
     needs: build
     runs-on: ubuntu-latest
